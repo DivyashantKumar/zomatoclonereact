@@ -6,7 +6,7 @@ import RestaurantDetail from '../components/RestaurantDetail';
 function ZomatoRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/zomatoclonereact" element={<LandingPage />} />
             <Route path="/restaurant/list/:timeFilter" element={<RestaurantListContainer />} />
             <Route path='/restaurant/:id' element={<RestaurantDetail />} />
             <Route path="*" element={<h1>404</h1>} />
