@@ -1,0 +1,7 @@
+.loginBtn {
+    color: white !important;
+} 
+
+.loginBtn:hover {
+    color: black !important;
+}

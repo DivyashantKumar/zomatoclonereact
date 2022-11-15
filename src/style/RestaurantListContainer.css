@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ResContainer {
+    margin-top: 37px;
+    margin-bottom: 50px;
+}
+
+.ResContainer > h1 {
+    font: normal normal bold 36px/55px Poppins;
+    color: #192F60;
+    margin-bottom: 27px;
+}
+
+
+.leftCol {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-right: 45px;
+    padding-left: 27px;
+    height: 700px;
+}
+
+.loactionsInput input {
+    height: 35px;
+}
+
+.leftCol h5 {
+    padding-top: 17px;
+    font: normal normal 600 18px/27px Poppins;
+    color: #192F60;
+}
+
+.leftCol h6 {   
+    font: normal normal normal 14px/21px Poppins;
+    color: #192F60;
+}
+
+.leftCol .location {    
+    padding-top: 10px;
+    padding-bottom: 11px;
+    margin: 0;
+
+}
+.leftCol .cuisine{    
+    padding-top: 22px;
+}
+
+.leftCol .cost {
+    padding-top: 15px;
+}
+
+.leftCol .sort{
+    font: normal normal 600 18px/27px Poppins;
+    padding-top: 24px;
+}
+
+.pagenation {
+    display: flex;
+    justify-content: center;
+}

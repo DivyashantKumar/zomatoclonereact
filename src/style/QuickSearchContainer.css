@@ -1,0 +1,14 @@
+
+.quickSearchContainer {
+    margin-top: 48px;
+}
+
+.quickSearchContainer h6 {
+    font: normal normal normal 18px/27px Poppins;
+    color: rgb(140, 150, 171);
+}
+
+.quickSearchContainer h2 {
+    font: normal normal bold 30px/46px Poppins;
+    color: rgb(25, 47, 96);
+}

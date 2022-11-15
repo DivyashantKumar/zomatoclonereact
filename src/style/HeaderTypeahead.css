@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 0 0;
+    z-index: 2;
+}
+
+.locationsInput {
+    max-width: 245px; 
+}
+
+.restaurentsInput{
+    width: 477px;
+}
+
+/* .restaurentsInput input:focus{
+    border: 1px solid white !important;
+} */
+
+.locationsInput input, .restaurentsInput input {
+    border-radius: 0;
+    height: 55px;
+    margin: 0 10px 0 10px;
+    
+}
+
+.locationsInput .rbt-menu, .restaurentsInput .rbt-menu {
+    border-radius: 0;
+    margin-top: 5px;
+}

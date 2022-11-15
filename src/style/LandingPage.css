@@ -1,0 +1,12 @@
+.navigation {
+    font: normal normal medium 16px/25px Poppins;
+}
+
+.navbar-brand {
+    display: none;
+    
+}
+
+.navigation .nav {
+    justify-content: flex-end;
+}

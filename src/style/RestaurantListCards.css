@@ -1,0 +1,44 @@
+
+.rightColRow {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    opacity: 1;
+    padding: 25px 20px 20px 35px;
+    margin-bottom: 34px;
+}
+
+.rightColRow:hover {
+    cursor: pointer;
+}
+
+.rowOne .columnOne img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.rowOne .columnTwo h3 {
+    font: normal normal 600 30px/46px Poppins;
+    color: #192F60;
+}
+
+.rowOne .columnTwo h6 {
+    font: normal normal medium 16px/30px Poppins;
+    color: #192F60;
+}
+
+.rowOne .columnTwo p {
+    font: normal normal normal 16px/30px Poppins;
+    color: #636F88;
+}
+
+.rowTwo .columnOne {
+    font: normal normal normal 16px/30px Poppins;
+    color: #636F88;
+}
+
+.rowTwo .columnTwo {
+    font: normal normal normal 16px/30px Poppins;
+    color: #192F60;
+}
