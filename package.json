@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "0.1.0",
-  "homepage": "https://DivyashantKumar.github.io/zomatoclonereact",
+  "homepage": "https://divyashantkumar.github.io/zomatoclonereact",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
