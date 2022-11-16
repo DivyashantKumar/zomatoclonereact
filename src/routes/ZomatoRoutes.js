@@ -9,7 +9,7 @@ function ZomatoRoutes() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/restaurant/list/:timeFilter" element={<RestaurantListContainer />} />
             <Route path='/restaurant/:id' element={<RestaurantDetail />} />
-            <Route path="*" element={<h1>404 Cannot find main LandingPage</h1>} />
+            <Route path="*" element={<h1>404 Cannot find main Landing Page</h1>} />
         </Routes>
     );
 }
