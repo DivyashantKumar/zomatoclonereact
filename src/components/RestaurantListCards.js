@@ -14,7 +14,7 @@ function RestaurantListCards(props) {
     }
 
     function enlistCuisine(CuisineArray){
-        return (CuisineArray.join(', '))
+        return (CuisineArray.join(', '));
     }
 
     return (

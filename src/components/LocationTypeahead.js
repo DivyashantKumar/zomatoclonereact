@@ -39,7 +39,6 @@ function LocationTypeahead(props) {
             placeholder="Choose a Location..."
             selected={selectedLocation}
             onChange={setSelectedLocation}
-
         />);
 
 }

@@ -9,7 +9,7 @@ function Header(){
         <div className='headerContainer'>
             <img src='https://github.com/DivyashantKumar/assignment-first/blob/main/images/header%20Image.png?raw=true' alt="not found"/>
             <AppNavbar className='navBar' page='landingPage'/> 
-            <Logo/>
+            <Logo/> 
             <div className='navHeading'>Find the best restaurants, cafés, and bars</div> 
             <HeaderTypeahead/>           
         </div>
