@@ -1,51 +1,76 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 .ResContainer {
-    margin-top: 37px;
-    margin-bottom: 50px;
+    margin: 37px 50px 50px 50px;
+    display: flex;
+    flex-direction: column;
 }
 
-.ResContainer > h1 {
+.lnrCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.ResContainer > div:first-child {
+    display: flex;
+    justify-content: center;
+}
+
+.ResContainer div:first-child h1 {
+    width: 1121px;
+    text-align: left;
     font: normal normal bold 36px/55px Poppins;
-    color: #192F60;
+    color: #192f60;
     margin-bottom: 27px;
 }
 
-
 .leftCol {
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     margin-right: 45px;
     padding-left: 27px;
+    display: block;
     height: 700px;
+    max-width: 300px;
 }
 
-.loactionsInput input {
-    height: 35px;
+.rlcLocInp {
+    max-width: 245px;
+    border-radius: none;
+}
+
+.rlcLocInp input {
+    border-radius: 0;
+    height: 55px;
+    margin: 0 10px 0 10px;
+}
+
+.dropdown {
+    display: none;
 }
 
 .leftCol h5 {
     padding-top: 17px;
     font: normal normal 600 18px/27px Poppins;
-    color: #192F60;
+    color: #192f60;
 }
 
-.leftCol h6 {   
+.leftCol h6 {
     font: normal normal normal 14px/21px Poppins;
-    color: #192F60;
+    color: #192f60;
 }
 
-.leftCol .location {    
+.leftCol .location {
     padding-top: 10px;
     padding-bottom: 11px;
     margin: 0;
-
 }
-.leftCol .cuisine{    
+.leftCol .cuisine {
     padding-top: 22px;
 }
 
@@ -53,12 +78,81 @@
     padding-top: 15px;
 }
 
-.leftCol .sort{
+.leftCol .sort {
     font: normal normal 600 18px/27px Poppins;
     padding-top: 24px;
+}
+
+.rightCol {
+    max-width: 794px;
 }
 
 .pagenation {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+    .ResContainer {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ResContainer div:first-child h1 {
+        text-align: center;
+    }
+
+    .lnrCont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .leftCol {
+        display: none;
+    }
+
+    .leftCol {
+        position: absolute;
+        width: inherit;
+    }
+
+    .dropdown {
+        display: block;
+        position: relative;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    .dropdown h3 {
+        letter-spacing: 2px;
+        padding-left: 40px;
+        color: #192f60;
+    }
+
+    .fsCont {
+        margin: 18px 0;        
+        padding: 18px 0;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.161);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .fsCont > div {
+        padding-right: 50px;
+    }
+
+    .dropdown span {
+        position: absolute;
+        transform: rotate(90deg);
+        font-size: 34px;
+    }
+
+    .pagenation {
+        position: relative;
+        z-index: -1;
+    }
+}
+
+@media only screen and (max-width: 500px) {
 }

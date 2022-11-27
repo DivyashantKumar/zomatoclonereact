@@ -32,7 +32,7 @@ function LocationTypeahead(props) {
 
     return (
         <Typeahead
-            className='locationsInput'
+            className={props.page === 'rlc' ? 'rlcLocInp' :'locationsInput'}
             labelKey="name"
             id='location'
             options={location}

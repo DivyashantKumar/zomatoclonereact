@@ -6,7 +6,7 @@
 
 .headerContainer{
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 480px;
     background: transparent linear-gradient(180deg, #9D0E0E00 0%, #4F0707 100%) 0% 0% no-repeat padding-box;
 }
@@ -30,6 +30,14 @@
 
 .navigation {
     font: normal normal medium 16px/25px Poppins;
+}
+
+@media only screen and (max-width:500px) {
+    .navHeading {
+        font: normal normal 600 28px/36px Poppins;
+        padding: 0 15px;
+        margin-top: 28px;
+    }
 }
 
 

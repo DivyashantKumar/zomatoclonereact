@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Container, Col, Row, Alert, Form, Pagination } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import {axiosInstanceWithoutToken} from '../api/axios';
+import { axiosInstanceWithoutToken } from '../api/axios';
 import { BaseUrl } from '../api/index';
 import RestaurantListCards from "./RestaurantListCards";
 import AppNavbar from "./AppNavbar";
@@ -39,32 +39,32 @@ function RestaurantListContainer() {
     ];
     const harcodedRestaurants = [
         {
-            "code":"BRF",
-            "name":"Breakfast"
+            "code": "BRF",
+            "name": "Breakfast"
         },
         {
-            "code":"LCH",
-            "name":"Lunch"
+            "code": "LCH",
+            "name": "Lunch"
         },
         {
-            "code":"DNR",
-            "name":"Dinner"
+            "code": "DNR",
+            "name": "Dinner"
         },
         {
-            "code":"SKS",
-            "name":"Snacks"
+            "code": "SKS",
+            "name": "Snacks"
         },
         {
-            "code":"DRK",
-            "name":"Drink"
+            "code": "DRK",
+            "name": "Drink"
         },
         {
-            "code":"NGT",
-            "name":"Night"
+            "code": "NGT",
+            "name": "Night"
         }
     ];
     const { timeFilter } = useParams();
-    console.log(timeFilter);
+    // console.log(timeFilter);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [timing, setTiming] = useState("");
     const [filteredCuisine, setFilteredCuisine] = useState([]);
@@ -78,29 +78,53 @@ function RestaurantListContainer() {
     useEffect(() => {
         console.log("PAyloadchanges")
         restaurentFilter();
-    }, [payload,activePage, sortBy]);
+    }, [payload, activePage, sortBy]);
 
 
-    function filterTiming(){
-        harcodedRestaurants.forEach((item)=> {
-            if(item.code === timeFilter){
-               setTiming(item.name);
+    function filterTiming() {
+        harcodedRestaurants.forEach((item) => {
+            if (item.code === timeFilter) {
+                setTiming(item.name);
             }
         });
     };
 
+    function handleFilter(event) {
+        const leftcol = document.getElementById('filterColumn');
+        const dropdown = document.getElementById('dropdown');
+
+        dropdown.appendChild(leftcol);
+        leftcol.style.display ="block"
+    }
+
+    //need to look again because no working on div element.
+    function handleFilterBlur() {
+        document.getElementById('filterColumn').style.display="none";
+
+    }
+
     return (
         <>
             <AppNavbar page='Other' />
-            <Container className="ResContainer" onLoad={filterTiming}>
+            <div className="ResContainer" onLoad={filterTiming} >
                 {/* {JSON.stringify(payload)} */}
-                <h1>{timing} places {restLocation.length>0? `in ${restLocation[0].name}` : "available"}</h1>
-                <Row>
-                    <Col className='col-3 leftCol'>
+                <div>
+                    <h1>{timing} places {restLocation.length > 0 ? `in ${restLocation[0].name}` : "available"}</h1>
+                </div>
+                <Row className="lnrCont">
+                    <div id="dropdown" class="row dropdown" onClick={handleFilter} onBlur={handleFilterBlur}>
+                        <div class="fsCont">
+                            <h3>Filter / Sort</h3> <div><span>&#10095;</span></div>
+                        </div>
+                    </div>
+                    <Col id="filterColumn" className='leftCol'>
+                        <div>
                         <h5>Filters</h5>
                         <h6 className="loaction">Select Location</h6>
 
-                        <LocationTypeahead filterRestaurent={getLocationPayload} />
+                        <div className="locationTypeahead">
+                            <LocationTypeahead page="rlc" filterRestaurent={getLocationPayload} />
+                        </div>
 
                         <h6 className="cuisine">Cuisine</h6>
                         <CuisineContainer cuisine={cuisine} getCuisine={getCuisinePayload} />
@@ -125,10 +149,10 @@ function RestaurantListContainer() {
                                 onChange={() => sortByOrder("hightolow")}
                             />
                         </Form>
-
+                        </div>
                     </Col>
 
-                    <Col className='col-8 RightCol'>
+                    <Col className='rightCol'>
                         {
                             filteredRestaurants.length === 0 && <Alert key='error' variant='danger'>Sorry no records found</Alert>
                         }
@@ -154,12 +178,12 @@ function RestaurantListContainer() {
                         </Pagination>
                     </Col>
                 </Row>
-            </Container>
+            </div>
 
         </>
     );
 
-    function sortByOrder(sortBasedOn){
+    function sortByOrder(sortBasedOn) {
         setSortBy(sortBasedOn);
         setPayload({ ...payload, 'sortBy': sortBasedOn });
     }
@@ -177,7 +201,7 @@ function RestaurantListContainer() {
         axiosInstanceWithoutToken.get(`${BaseUrl}/getRestaurants`, payloadToSend).then((res) => {
             console.log(res?.data?.data?.restaurants);
             setFilteredRestaurants(res?.data?.data?.restaurants);
-            
+
             const totalPagesArray = [];
             const totalPages = res?.data?.data?.total / limit;
             for (var i = 0; i < totalPages; i++) {
@@ -187,7 +211,7 @@ function RestaurantListContainer() {
         });
     }
 
-    function updateActivePage(activePage){
+    function updateActivePage(activePage) {
         setActivePage(activePage);
     }
 

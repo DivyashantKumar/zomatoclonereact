@@ -22,3 +22,18 @@
     color: rgb(235, 41, 41);
     font: normal normal 600 70px/106px Poppins;
 }
+
+@media only screen and (max-width:500px) {
+    .logo {
+        margin-top: 45px;
+    }
+
+    .circle {
+        width: 90px;
+        height: 90px;
+    }
+
+    .circle p {
+        font: normal normal 600 42px/63px Poppins;
+    }
+}

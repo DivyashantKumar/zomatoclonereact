@@ -4,12 +4,6 @@ import AppNavbar from './AppNavbar';
 import HeaderTypeahead from './HeaderTypeahead';
 
 function Header(){
-    // const styleClass = {
-    //     'navigation': 'navigation',
-    //     'navigationContainer':'navigationContainer',
-    //     'navbarBrand': 'navbarBrand',
-    //     'nav': 'nav'
-    // }
     
     return (
         <div className='headerContainer'>
