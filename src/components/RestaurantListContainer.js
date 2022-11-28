@@ -10,11 +10,11 @@ import '../style/RestaurantListContainer.css';
 import CuisineContainer from './CuisineContainer';
 import CostContainer from './CostContainer';
 
-
+let num = 0;
 function RestaurantListContainer() {
-
-    const [sortBy, setSortBy] = useState("");
+    
     const limit = 2;
+    const [sortBy, setSortBy] = useState("");
     const cuisine = [
         {
             "code": "NI",
@@ -76,6 +76,7 @@ function RestaurantListContainer() {
     });
 
     useEffect(() => {
+
         console.log("PAyloadchanges")
         restaurentFilter();
     }, [payload, activePage, sortBy]);
@@ -89,99 +90,6 @@ function RestaurantListContainer() {
         });
     };
 
-    function handleFilter(event) {
-        const leftcol = document.getElementById('filterColumn');
-        const dropdown = document.getElementById('dropdown');
-
-        dropdown.appendChild(leftcol);
-        leftcol.style.display ="block"
-    }
-
-    //need to look again because no working on div element.
-    function handleFilterBlur() {
-        document.getElementById('filterColumn').style.display="none";
-
-    }
-
-    return (
-        <>
-            <AppNavbar page='Other' />
-            <div className="ResContainer" onLoad={filterTiming} >
-                {/* {JSON.stringify(payload)} */}
-                <div>
-                    <h1>{timing} places {restLocation.length > 0 ? `in ${restLocation[0].name}` : "available"}</h1>
-                </div>
-                <Row className="lnrCont">
-                    <div id="dropdown" class="row dropdown" onClick={handleFilter} onBlur={handleFilterBlur}>
-                        <div class="fsCont">
-                            <h3>Filter / Sort</h3> <div><span>&#10095;</span></div>
-                        </div>
-                    </div>
-                    <Col id="filterColumn" className='leftCol'>
-                        <div>
-                        <h5>Filters</h5>
-                        <h6 className="loaction">Select Location</h6>
-
-                        <div className="locationTypeahead">
-                            <LocationTypeahead page="rlc" filterRestaurent={getLocationPayload} />
-                        </div>
-
-                        <h6 className="cuisine">Cuisine</h6>
-                        <CuisineContainer cuisine={cuisine} getCuisine={getCuisinePayload} />
-
-                        <h6 className="cost">Cost For Two</h6>
-                        <CostContainer getCost={getCostPayload} />
-
-                        <h6 className="sort">Sort</h6>
-                        <Form className="mb-3">
-                            <Form.Check
-                                type="radio"
-                                name="sort"
-                                id="Price low to high"
-                                label="Price low to high"
-                                onChange={() => sortByOrder("lowtohigh")}
-                            />
-                            <Form.Check
-                                type="radio"
-                                name="sort"
-                                label="Price high to low"
-                                id="Price high to low"
-                                onChange={() => sortByOrder("hightolow")}
-                            />
-                        </Form>
-                        </div>
-                    </Col>
-
-                    <Col className='rightCol'>
-                        {
-                            filteredRestaurants.length === 0 && <Alert key='error' variant='danger'>Sorry no records found</Alert>
-                        }
-                        {filteredRestaurants.length > 0 && filteredRestaurants.map((item, index) =>
-                            <RestaurantListCards
-                                key={index}
-                                restaurants={item}
-                            />
-                        )}
-
-                        <Pagination className="pagenation">
-                            {
-                                totalPages.map((item, index) =>
-                                    <Pagination.Item
-                                        key={index}
-                                        active={activePage === item + 1}
-                                        onClick={() => updateActivePage(item + 1)}
-                                    >
-                                        {item + 1}
-                                    </Pagination.Item>
-                                )
-                            }
-                        </Pagination>
-                    </Col>
-                </Row>
-            </div>
-
-        </>
-    );
 
     function sortByOrder(sortBasedOn) {
         setSortBy(sortBasedOn);
@@ -240,6 +148,113 @@ function RestaurantListContainer() {
         // console.log(costRange);
         setPayload({ ...payload, 'selectedCostRange': costRange });
     }
+
+    function handleFilter() {
+        const leftcol = document.getElementById('filterColumn');
+        const dropdown = document.getElementById('dropdown');
+        let btn = null;
+        let text = null;
+
+        if (++num === 1) {
+            dropdown.appendChild(leftcol);
+            btn = document.createElement("button");
+            text = document.createTextNode("Apply");
+            btn.setAttribute("id", "applyBtn");
+            btn.appendChild(text);
+            leftcol.appendChild(btn);
+            leftcol.style.display = "block"
+            btn.addEventListener("click", (event) => {
+                num = 0;
+                leftcol.style.display = "none";
+            })
+            ++num;
+        } else {
+            document.getElementById('applyBtn').remove();
+            num = 0;
+            leftcol.style.display = "none";
+        }
+
+    }
+
+    return (
+        <>
+            <AppNavbar page='Other' />
+            <div className="ResContainer" onLoad={filterTiming} >
+                {/* {JSON.stringify(payload)} */}
+                <div>
+                    <h1>{timing} places {restLocation.length > 0 ? `in ${restLocation[0].name}` : "available"}</h1>
+                </div>
+                <Row className="lnrCont">
+                    <div id="dropdown" className="row dropdown" onClick={() => handleFilter()}>
+                        <div className="fsCont">
+                            <h3>Filter / Sort</h3> <div><span>&#10095;</span></div>
+                        </div>
+                    </div>
+                    <Col id="filterColumn" className='leftCol'>
+                        <div>
+                            <h5>Filters</h5>
+                            <h6 className="loaction">Select Location</h6>
+
+                            <div className="locationTypeahead">
+                                <LocationTypeahead page="rlc" filterRestaurent={getLocationPayload} />
+                            </div>
+
+                            <h6 className="cuisine">Cuisine</h6>
+                            <CuisineContainer cuisine={cuisine} getCuisine={getCuisinePayload} />
+
+                            <h6 className="cost">Cost For Two</h6>
+                            <CostContainer getCost={getCostPayload} />
+
+                            <h6 className="sort">Sort</h6>
+                            <Form className="mb-3">
+                                <Form.Check
+                                    type="radio"
+                                    name="sort"
+                                    id="Price low to high"
+                                    label="Price low to high"
+                                    onChange={() => sortByOrder("lowtohigh")}
+                                />
+                                <Form.Check
+                                    type="radio"
+                                    name="sort"
+                                    label="Price high to low"
+                                    id="Price high to low"
+                                    onChange={() => sortByOrder("hightolow")}
+                                />
+                            </Form>
+                        </div>
+                    </Col>
+
+                    <Col className='rightCol'>
+                        {
+                            filteredRestaurants.length === 0 && <Alert key='error' variant='danger'>Sorry no records found</Alert>
+                        }
+                        {filteredRestaurants.length > 0 && filteredRestaurants.map((item, index) =>
+                            <RestaurantListCards
+                                key={index}
+                                restaurants={item}
+                            />
+                        )}
+
+                        <Pagination className="pagenation">
+                            {
+                                totalPages.map((item, index) =>
+                                    <Pagination.Item
+                                        key={index}
+                                        active={activePage === item + 1}
+                                        onClick={() => updateActivePage(item + 1)}
+                                    >
+                                        {item + 1}
+                                    </Pagination.Item>
+                                )
+                            }
+                        </Pagination>
+                    </Col>
+                </Row>
+            </div>
+
+        </>
+    );
 }
 
 export default RestaurantListContainer;

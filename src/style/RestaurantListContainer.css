@@ -109,6 +109,7 @@
 
     .leftCol {
         display: none;
+        height: 760px;
     }
 
     .leftCol {
@@ -121,6 +122,7 @@
         position: relative;
         max-width: 650px;
         margin: auto;
+        margin-bottom: 30px;
     }
 
     .dropdown h3 {
@@ -148,12 +150,18 @@
         font-size: 34px;
     }
 
+    #applyBtn {
+        width: 100%;
+        background-color: white;
+        border-radius: 8px;
+        border: solid 1px red;
+        color: red;
+        margin-top: 10px;
+        padding: 10px 0;
+    }
+
     .pagenation {
         position: relative;
-        z-index: -1;
+        margin-top: 100px;
     }
-}
-
-@media only screen and (max-width: 500px) {
-    
 }

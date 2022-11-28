@@ -59,9 +59,12 @@
     font: normal normal normal 16px/30px Poppins;
     color: #192F60;
 }
-/* 
+
 @media only screen and (max-width: 767px) {
-}    */
+    .rightColRow {
+        margin-bottom: 50px;
+    }
+}   
 
 @media only screen and (max-width: 500px) {
     

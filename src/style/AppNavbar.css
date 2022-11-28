@@ -80,7 +80,7 @@
     color: #ce0505;
 }
 
-.authenticationButtons {
+.authenticationButtons, .authenticationButtonsOther {
     display: flex;
 }
 

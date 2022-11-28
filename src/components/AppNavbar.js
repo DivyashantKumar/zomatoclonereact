@@ -13,7 +13,7 @@ function AppNavbar(props) {
       <Container className={props.page === 'landingPage' ? 'navigationContainer' : 'navigationContainerOther'}>  {/* navigationContainerOther */}
         <a title='Home' href="/" className={props.page === 'landingPage' ? 'navbarBrand' : 'navbarBrandOther'}><p>e!</p></a>{/*  navbar-brandOther */}
         <Nav className={props.page === 'landingPage' ? 'nav' : 'navOther'}>{/*  navOther */}
-          <div className='authenticationButtons'>
+          <div className= {props.page === 'Other' ? 'authenticationButtonsOther' : 'authenticationButtons'}>
             <SignupLogin /> 
           </div>
         </Nav>
