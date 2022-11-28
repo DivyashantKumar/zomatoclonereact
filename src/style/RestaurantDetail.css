@@ -17,7 +17,7 @@
 
 .placeOrderBtn {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-top: 20px;
 }
 
@@ -125,7 +125,7 @@
 .imgContainer {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: flex-end;
     overflow: hidden;
     width: 100px;
     padding: 0;
@@ -203,7 +203,6 @@
 .proceedModalBodyRow {
     padding-left: 60px;
     padding-right: 60px;
-    /* text-align: left; */
 }
 
 .proceedModalBodyRow input, textarea, input::placeholder, textarea::placeholder {
@@ -239,7 +238,7 @@
 
 .proceed div {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 60px;
 }
 
