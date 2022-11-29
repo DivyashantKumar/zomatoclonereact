@@ -110,12 +110,17 @@
     .leftCol {
         display: none;
         height: 760px;
+        position: absolute;
+        max-width: 615px;
+        margin-right: 10px;
     }
 
-    .leftCol {
-        position: absolute;
-        width: inherit;
-    }
+    /* .leftCol {
+        display: flex;
+        flex-direction: column;
+    } */
+
+
 
     .dropdown {
         display: block;

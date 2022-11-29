@@ -10,10 +10,14 @@ import '../style/RestaurantListContainer.css';
 import CuisineContainer from './CuisineContainer';
 import CostContainer from './CostContainer';
 
-let num = 0;
 function RestaurantListContainer() {
-    
-    const limit = 2;
+    let limit = 2;
+    if(window.innerWidth < 767){
+        limit = 3;
+    }else {
+        limit = 2;
+    }
+    const [num, setNum] = useState(0);
     const [sortBy, setSortBy] = useState("");
     const cuisine = [
         {
@@ -154,32 +158,39 @@ function RestaurantListContainer() {
         const dropdown = document.getElementById('dropdown');
         let btn = null;
         let text = null;
+        let count = num;
+        ++count;
 
-        if (++num === 1) {
+        if (count === 1) {
             dropdown.appendChild(leftcol);
+
             btn = document.createElement("button");
             text = document.createTextNode("Apply");
             btn.setAttribute("id", "applyBtn");
             btn.appendChild(text);
             leftcol.appendChild(btn);
-            leftcol.style.display = "block"
-            btn.addEventListener("click", (event) => {
-                num = 0;
-                leftcol.style.display = "none";
-            })
-            ++num;
+            leftcol.style.display = "block";
+            setNum(2);
         } else {
             document.getElementById('applyBtn').remove();
-            num = 0;
+            setNum(0);
             leftcol.style.display = "none";
         }
+
+        if(document.getElementById('applyBtn')){
+            btn.addEventListener("click", (event) => {
+                setNum(0);
+                document.getElementById('applyBtn').remove();
+                leftcol.style.display = "none";
+            })
+        }       
 
     }
 
     return (
         <>
             <AppNavbar page='Other' />
-            <div className="ResContainer" onLoad={filterTiming} >
+            <div className="ResContainer" onLoad={filterTiming}>
                 {/* {JSON.stringify(payload)} */}
                 <div>
                     <h1>{timing} places {restLocation.length > 0 ? `in ${restLocation[0].name}` : "available"}</h1>
