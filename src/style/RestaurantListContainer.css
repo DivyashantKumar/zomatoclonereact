@@ -114,14 +114,7 @@
         max-width: 615px;
         margin-right: 10px;
     }
-
-    /* .leftCol {
-        display: flex;
-        flex-direction: column;
-    } */
-
-
-
+    
     .dropdown {
         display: block;
         position: relative;
