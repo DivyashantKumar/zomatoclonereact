@@ -113,13 +113,22 @@
 }
 
 .payBtn {
-    width:155px; 
-    height:50px; 
-    border-radius:6px;
-    background-color: #CE0505;
-    color: #fff;
+    width: 155px; 
+    height:50px;
+    background-color: #CE0505; 
+    text-align: center; 
+    font-weight: 800; 
+    padding: 11px 0px; 
+    color: white; 
+    font: normal normal normal 18px/27px Poppins;; 
+    display: inline-block; 
     border: none;
-    font: normal normal medium 18px/27px Poppins;
+    border-radius:6px;
+    text-decoration: none;
+}
+
+.payBtn:hover {
+    color: #fff;
 }
 
 .imgContainer {

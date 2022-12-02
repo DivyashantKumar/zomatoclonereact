@@ -238,7 +238,11 @@ function RestaurantListContainer() {
 
                     <Col className='rightCol'>
                         {
-                            filteredRestaurants.length === 0 && <Alert key='error' variant='danger'>Sorry no records found</Alert>
+                            filteredRestaurants.length === 0 && (<div className="noResultFound">
+                                <div>
+                                    <h3>Sorry. No result Found</h3> 
+                                </div>    
+                            </div>)
                         }
                         {filteredRestaurants.length > 0 && filteredRestaurants.map((item, index) =>
                             <RestaurantListCards

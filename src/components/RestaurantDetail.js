@@ -106,7 +106,7 @@ function RestaurantDetail() {
                                         <p>&nbsp; &nbsp; &nbsp; {calcPrice}</p>
                                     </Col>
                                     <Col md={4} style={{ height: '50px' }}>
-                                        <button type="button" className="payBtn" onClick={() => payNowBtn()} >Pay Now</button>
+                                        <button type="button" className="payBtn" onClick={() => proceedBtn()} >Proceed</button>
                                     </Col>
                                 </Row>
                             </Container>
@@ -132,7 +132,8 @@ function RestaurantDetail() {
 
                                 <Row className="proceed">
                                     <Col md={12} style={{ height: '50px' }}>
-                                        <button type="button" className="payBtn">Proceed</button>
+                                        {/* <button type="button" className="payBtn">Proceed</button> */}
+                                        <div><a className="payBtn" href='https://pmny.in/PISO4R2izrOi' target="_blank" > Pay Now </a></div>
                                     </Col>
                                 </Row>
                             </Container>
@@ -164,7 +165,7 @@ function RestaurantDetail() {
         </>
     );
 
-    function payNowBtn() {
+    function proceedBtn() {
         if (!sessionStorage.getItem('token')) {
             alert("Please Login to proceed ahead!");
         } else if (calcPrice === 0) {

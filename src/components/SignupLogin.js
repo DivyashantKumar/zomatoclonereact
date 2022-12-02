@@ -87,40 +87,36 @@ function SignupLogin() {
                 </Button>
             }
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal className="modalBox" show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     {modelTitle === "login" && <Modal.Title>Login</Modal.Title>}
                     {modelTitle === "signup" && <Modal.Title>Sign Up</Modal.Title>}
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3 emailContainer" controlId="exampleForm.ControlInput1">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control
                                 required
                                 name="username"
-                                // value={username}
                                 type="email"
                                 placeholder="name@example.com"
                                 onChange={createPayload}
-                                autoFocus
                             />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3 passContainer" controlId="exampleForm.ControlInput1">
                             <Form.Label>Password</Form.Label>
                             <Form.Control
                                 required
                                 name="password"
-                                // value={password}
                                 type="password"
                                 placeholder="abc12XH55%00"
                                 onChange={createPayload}
-                                autoFocus
                             />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className='modalFooter'>
                     {
                         (!sessionStorage.getItem('token') && modelTitle === "login")
                         && <Button variant="primary" onClick={() => handleClose("login")}> Login </Button>
