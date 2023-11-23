@@ -84,6 +84,21 @@
     display: flex;
 }
 
+.anchor {
+    margin-top: 7px;
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+    height: 35px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.anchor:hover {
+    color: white;
+    background-color: rgba(173, 38, 38, 0.808);
+}
 
 @media only screen and (max-width: 500px) {
     .authenticationButtons {

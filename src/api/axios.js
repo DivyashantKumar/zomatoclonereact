@@ -10,7 +10,8 @@ import {
 import {config} from "./config";
 
 const instanceData = {
-  baseURL:'https://zomatoclonenodeapi.azurewebsites.net',
+  // baseURL:'https://zomatoclonenodeapi.azurewebsites.net',
+  baseURL:'http://localhost:9191',
   timeout:6000,
   ...config
 };

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form, Modal, Nav } from "react-bootstrap";
 import { BaseUrl } from '../api/index';
 import {axiosInstanceWithoutToken} from '../api/axios';
+import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import '../style/SignupLogin.css';
 
@@ -55,6 +56,12 @@ function SignupLogin() {
             setParam({});
             navigate("/");
         }        
+    }
+
+    async function loginwithGoogle() {
+        const res = await axios.get('http://localhost:8080/user/authorization/url', {params: {}});
+        console.log(res.data)
+        window.open(res.data.url, '_self')
     }
 
     return (
@@ -125,6 +132,7 @@ function SignupLogin() {
                         modelTitle === "signup"
                         && <Button variant="primary" onClick={() => handleClose("signup")}> Sign Up </Button>
                     }
+                    <Button variant="success" onClick={loginwithGoogle}>Login With Google</Button>
                     <Button variant="danger" onClick={handleClose}> Cancle </Button>
                 </Modal.Footer>
             </Modal>
