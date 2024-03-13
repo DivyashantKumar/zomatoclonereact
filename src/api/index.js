@@ -1,5 +1,5 @@
 
-const BaseUrl = 'http://localhost:9191';
-// const BaseUrl = 'https://zomatoclonenodeapi.azurewebsites.net';
+// const BaseUrl = 'http://localhost:9191';
+const BaseUrl = 'https://zomatoclonenode.azurewebsites.net';
 
 export {BaseUrl};

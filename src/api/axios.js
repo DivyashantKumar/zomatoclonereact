@@ -10,14 +10,14 @@ import {
 import {config} from "./config";
 
 const instanceData = {
-  // baseURL:'https://zomatoclonenodeapi.azurewebsites.net',
-  baseURL:'http://localhost:9191',
+  baseURL:'https://zomatoclonenode.azurewebsites.net',
+  // baseURL:'http://localhost:9191',
   timeout:6000,
   ...config
 };
 
-console.log("config");console.log(config);
-console.log("instancedata");console.log(instanceData);
+// console.log("config");console.log(config);
+// console.log("instancedata");console.log(instanceData);
 
 const axiosInstanceWithoutToken = axios.create(instanceData);
 const axiosInstanceWithToken = axios.create(instanceData);

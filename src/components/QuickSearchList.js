@@ -20,7 +20,7 @@ function QuickSearchList() {
                     return item.code === 'BRF'|| item.code === 'LCH'|| item.code === 'SKS';
                 })
                 setQuickSearchList(data);
-                console.log(data);
+                // console.log(data);
             }) 
         }           
     }, []);
