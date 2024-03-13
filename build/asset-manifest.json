@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/zomatoclonereact/static/css/main.73a5ff08.css",
+    "main.js": "/zomatoclonereact/static/js/main.02676be8.js",
+    "static/js/787.c1112931.chunk.js": "/zomatoclonereact/static/js/787.c1112931.chunk.js",
+    "index.html": "/zomatoclonereact/index.html",
+    "main.73a5ff08.css.map": "/zomatoclonereact/static/css/main.73a5ff08.css.map",
+    "main.02676be8.js.map": "/zomatoclonereact/static/js/main.02676be8.js.map",
+    "787.c1112931.chunk.js.map": "/zomatoclonereact/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73a5ff08.css",
+    "static/js/main.02676be8.js"
+  ]
+}
